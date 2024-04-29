@@ -17,7 +17,7 @@ from chaoslib.types import Configuration, Secrets
 from chaosgcp import client
 
 
-__all__ = ["update_dns_record"]
+__all__ = ["update_dns_A_record"]
 
 logger = logging.getLogger("chaostoolkit")
 
@@ -37,7 +37,7 @@ def update_dns_A_record(
     """Updates the DNS A record entry, It cannot be undone.
 
     Args:
-        project_id : the project ID in which the DNS record is present
+        project : the project ID in which the DNS record is present
         ip_address: the IP address for the A record that needs to be changed
         name: the name of the dns record entry
         zone_name: the name of the dns zone name which needs to be changed
@@ -60,7 +60,7 @@ def update_dns_A_record(
     }
 
     request = service.resourceRecordSets().patch(
-        project=project_id,
+        project=project,
         managedZone=zone_name,
         name=name,
         type=existing_type,
