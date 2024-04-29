@@ -22,8 +22,8 @@ __all__ = ["update_dns_record"]
 logger = logging.getLogger("chaostoolkit")
 
 
-def update_dns_record(
-    project_id: str,
+def update_dns_A_record(
+    project: str,
     ip_address: str,
     name: str,
     zone_name: str,
